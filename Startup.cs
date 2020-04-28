@@ -28,6 +28,9 @@ namespace Fisher.Bookstore
             );
             services.AddScoped<IBooksRepository, BooksRepository>();
             services.AddScoped<IAuthorsRepository, AuthorsRepository>();
+
+            services.AddSingleton<IBooksRepository, TestBooksRepository>();
+             services.AddSingleton<IAuthorsRepository, TestAuthorsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

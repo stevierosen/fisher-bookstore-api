@@ -22,7 +22,8 @@ namespace Fisher.Bookstore.Controllers
             return Ok(authorsRepository.GetAuthors());
         }
 
-        [HttpGet("{authorId}")]
+
+         [HttpGet("{authorId}")]
         public IActionResult Get(int authorId)
         {
             if (!authorsRepository.AuthorExists(authorId))
@@ -34,11 +35,13 @@ namespace Fisher.Bookstore.Controllers
         }
 
         [HttpPost]
+
         public IActionResult Post([FromBody]Author author)
         {
             var authorId = authorsRepository.AddAuthor(author);
             return Created($"https://localhost:5001/api/authors/{authorId}", author);
         }
+
 
         [HttpPut("{authorId}")]
         public IActionResult Put(int authorId, [FromBody] Author author)
@@ -65,8 +68,10 @@ namespace Fisher.Bookstore.Controllers
                 return NotFound();
             }
 
+
             authorsRepository.DeleteAuthor(authorId);
             return Ok();
         }
     }
+
 }
