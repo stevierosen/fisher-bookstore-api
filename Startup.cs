@@ -27,6 +27,8 @@ namespace Fisher.Bookstore
                 options.UseNpgsql(Configuration.GetConnectionString("BookstoreContext"))
             );
             services.AddScoped<IBooksRepository, BooksRepository>();
+            services.AddScoped<IAuthorsRepository, AuthorsRepository>();
+
             services.AddSingleton<IBooksRepository, TestBooksRepository>();
              services.AddSingleton<IAuthorsRepository, TestAuthorsRepository>();
         }
